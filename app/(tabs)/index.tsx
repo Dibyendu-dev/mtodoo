@@ -1,20 +1,22 @@
 
+import useTheme from '@/hooks/useTheme';
 import {  StyleSheet, View , Text} from 'react-native';
+import { LinearGradient } from "expo-linear-gradient";
+import { createHomeStyles } from '@/assets/styles/home.style';
+import { SafeAreaView } from "react-native-safe-area-context";
+import Header from '@/componenets/Header';
 
 export default function HomeScreen() {
+
+   const { colors } = useTheme();
+   const homeStyles = createHomeStyles(colors);
+
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>
-        Try editing me! 🎉
-      </Text>
-    </View>
+    <LinearGradient colors={colors.gradients.background} style={homeStyles.container}>
+      <SafeAreaView style={homeStyles.safeArea}>
+        <Header />
+      </SafeAreaView>
+    </LinearGradient>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
