@@ -3,6 +3,7 @@
     "name": "mtodoo",
     "slug": "mtodoo",
     "version": "1.0.0",
+    "icon": "./assets/icon.png",
     "orientation": "portrait",
     "scheme": "mtodoo",
     "userInterfaceStyle": "automatic",
@@ -36,6 +37,12 @@
       },
       "EXPO_PUBLIC_CONVEX_URL": "https://valiant-mongoose-381.convex.cloud",
       "EXPO_PUBLIC_CONVEX_SITE_URL": "https://valiant-mongoose-381.convex.site"
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/7a1a7673-76ef-402a-ae7a-f36dcca7b150"
     }
   }
 }

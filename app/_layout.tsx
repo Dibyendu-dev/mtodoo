@@ -1,10 +1,10 @@
 
-import { Stack } from "expo-router";
 import { ThemeProvider } from "@/hooks/useTheme";
 import { ConvexProvider, ConvexReactClient } from "convex/react";
-import { InAppLoggerInstaller, InAppLogOverlay } from "../debug/InAppLogger";
 import Constants from "expo-constants";
+import { Stack } from "expo-router";
 import { Text, View } from "react-native";
+import { InAppLoggerInstaller, InAppLogOverlay } from "../debug/InAppLogger";
 
 function getExtraString(key: string): string | undefined {
   const extra = (Constants.expoConfig as any)?.extra ?? (Constants as any)?.expoConfig?.extra;
@@ -38,13 +38,13 @@ export default function RootLayout() {
 
   return (
     <>
-      <InAppLoggerInstaller />
+      {__DEV__ && <InAppLoggerInstaller />}
       <ConvexProvider client={convex}>
         <ThemeProvider>
           <Stack screenOptions={{ headerShown: false }}>
             <Stack.Screen name="(tabs)" />
           </Stack>
-          <InAppLogOverlay />
+          {__DEV__ && <InAppLogOverlay />}
         </ThemeProvider>
       </ConvexProvider>
     </>
